@@ -68,7 +68,17 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-2">
+                        @include('partials.sidebar')
+                    </div>
+                    <div class="col-10">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 </body>
