@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $users = User::all();
+
+        return view('user.index')->with('users', $users);
     }
 
     /**
