@@ -14,14 +14,12 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SiteController@index');
 
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('/', 'AdminController@index');
     Route::resource('user', 'UserController');
     Route::resource('visitors', 'VisitorsController');
 });
