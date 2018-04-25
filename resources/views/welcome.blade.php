@@ -81,6 +81,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+                <p>IP: <?= $ip ?></p>
             </div>
         </div>
     </body>

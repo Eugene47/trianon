@@ -12,6 +12,8 @@
                     <td>ID</td>
                     <td>IP ADDRESS</td>
                     <td>Country</td>
+                    <td>Device</td>
+                    <td>Browser</td>
                     <td>Typing speed</td>
                     <td>Actions</td>
                 </tr>
@@ -22,9 +24,16 @@
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->ip_address }}</td>
                         <td>{{ $value->country }}</td>
+                        <td>{{ $value->device }}</td>
+                        <td>{{ $value->browser }}</td>
                         <td>{{ $value->typing_speed }}</td>
                         <td>
-                            <a class="btn btn-small btn-danger" href="{{ URL::to('admin/visitors/' . $value->id . '/delete') }}">Delete</a>
+                            {!! Form::open([
+                                'method' => 'DELETE',
+                                'route' => ['visitors.destroy', $value->id ]
+                            ]) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-small btn-danger']) !!}
+                            {!! Form::close() !!}
                         </td>
                     </tr>
                 @endforeach

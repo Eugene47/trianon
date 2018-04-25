@@ -16,8 +16,10 @@ class CreateVisitorsTable extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ip_address');
-            $table->string('country');
-            $table->integer('typing_speed');
+            $table->string('country')->nullable();
+            $table->string('device')->nullable();
+            $table->string('browser')->nullable();
+            $table->integer('typing_speed')->nullable();
             $table->timestamps();
         });
     }
