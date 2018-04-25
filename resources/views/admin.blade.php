@@ -11,7 +11,7 @@
                 </div>
             @endif
 
-            You are logged in!
+            Admin panel
         </div>
     </div>
 @endsection

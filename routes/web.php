@@ -20,5 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/site', 'SiteController@index')->name('site');
-Route::resource('user', 'UserController');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::resource('user', 'UserController');
+    Route::resource('visitors', 'VisitorsController');
+});
+

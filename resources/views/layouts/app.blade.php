@@ -42,7 +42,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            {{--<li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>--}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -66,14 +66,21 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-2">
-                        @include('partials.sidebar')
-                    </div>
+                    @if (Auth::check())
+                        <div class="col-2">
+                            @include('partials.sidebar')
+                        </div>
+                    @endif
                     <div class="col-10">
+                        @if(Session::has('flash_message'))
+                            <div class="container">
+                                <div class="alert alert-success"><em> {!! session('flash_message') !!}</em>
+                                </div>
+                            </div>
+                        @endif
                         @yield('content')
                     </div>
                 </div>

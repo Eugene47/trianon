@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Visitors;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class VisitorsController extends Controller
 {
-    public function __construct()
-    {
-        //$this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $visitors = Visitors::all();
 
-        return view('user.index')->with('users', $users);
+        return view('visitors.index')->with('visitors', $visitors);
     }
 
     /**
@@ -86,6 +82,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Visitors::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('visitors.index')->with('flash_message', 'Visitor successfully deleted');
     }
 }
