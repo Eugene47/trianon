@@ -12,8 +12,6 @@
                     <td>ID</td>
                     <td>IP ADDRESS</td>
                     <td>Country</td>
-                    <td>Device</td>
-                    <td>Browser</td>
                     <td>Typing speed</td>
                     <td>Actions</td>
                 </tr>
@@ -23,9 +21,7 @@
                     <tr>
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->ip_address }}</td>
-                        <td>{{ $value->country }}</td>
-                        <td>{{ $value->device }}</td>
-                        <td>{{ $value->browser }}</td>
+                        <td><img src="{{ $value->flag }}"> {{ $value->country }}</td>
                         <td>{{ $value->typing_speed }}</td>
                         <td>
                             {!! Form::open([

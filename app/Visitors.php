@@ -23,4 +23,12 @@ class Visitors extends Model
         }
         return $ip;
     }
+
+    public function getClientGeoData()
+    {
+        $ch = file_get_contents('https://api.ipdata.co');
+        $data  = json_decode($ch);
+
+        return $data;
+    }
 }
