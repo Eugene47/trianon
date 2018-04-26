@@ -62,6 +62,13 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .content .divider {
+                border-top: 1px #dfdfe0 solid;
+            }
+            .content textarea {
+                resize: none;
+            }
         </style>
     </head>
     <body>
@@ -81,7 +88,12 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-                <p>IP: <?= $ip ?></p>
+                <p>Your IP: <?= $ip ?></p>
+                <div class="divider"></div>
+                <p>Enter the text</p>
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" cols="50"></textarea>
+                </div>
             </div>
         </div>
     </body>
