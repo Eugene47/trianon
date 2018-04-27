@@ -28,7 +28,7 @@
                                 'method' => 'DELETE',
                                 'route' => ['visitors.destroy', $value->id ]
                             ]) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-small btn-danger']) !!}
+                            {!! Form::button('<i class="far fa-trash-alt"></i> ' . 'Delete', ['class' => 'btn btn-small btn-danger', 'type' => 'submit']) !!}
                             {!! Form::close() !!}
                         </td>
                     </tr>

@@ -87,4 +87,15 @@ class VisitorsController extends Controller
 
         return redirect()->route('visitors.index')->with('flash_message', 'Visitor successfully deleted');
     }
+
+    /*public function send(array $data)
+    {
+        $visitors = new Visitors();
+        $ip = $visitors->getClientGeoData()->ip;
+        $visitor = Visitors::where(['ip_address' => $ip])->first();
+        $visitor->typing_speed = '228';
+        $visitor->save();
+
+        return view('welcome');
+    }*/
 }

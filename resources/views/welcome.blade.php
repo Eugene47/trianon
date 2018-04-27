@@ -9,8 +9,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Styles -->
+        <script
+                src="http://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
         <style>
             html, body {
                 background-color: #fff;
@@ -46,7 +50,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 50px;
             }
 
             .links > a {
@@ -65,9 +69,13 @@
 
             .content .divider {
                 border-top: 1px #dfdfe0 solid;
+                margin: 20px 0px;
             }
             .content textarea {
                 resize: none;
+            }
+            .content label{
+                float: left;
             }
         </style>
     </head>
@@ -86,15 +94,21 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Your IP: <?= $ip ?>
                 </div>
-                <p>Your IP: <?= $ip ?></p>
                 <div class="divider"></div>
-                <p>Enter the text</p>
-                <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" cols="50"></textarea>
+                    <p>Symbols per minute <span id="spm">0</span></p>
+                    <p>Symbolcount <span id="scount">0</span></p>
+                    <p>Timer <span id="timer">0</span></p>
+                <div class="divider"></div>
+                <div class="form-inline">
+                    <div class="form-group mx-sm-5 mb-2">
+                        <input id="input_pass" type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <button id="send" type="submit" class="btn btn-outline-secondary mb-2" onclick="send()">Login</button>
                 </div>
             </div>
         </div>
+        <script src="{{ asset('js/typespeed.js') }}" defer></script>
     </body>
 </html>

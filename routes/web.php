@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'SiteController@index');
+Route::post('/send', 'VisitorsController@send');
 
 Auth::routes();
 
