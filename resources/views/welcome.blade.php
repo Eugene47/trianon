@@ -96,10 +96,14 @@
                 <div class="title m-b-md">
                     Your IP: <?= $ip ?>
                 </div>
+                <div class="title m-b-md">
+                    <?= $python ?>
+                </div>
                 <div class="divider"></div>
                     <p>Symbols per minute <span id="spm">0</span></p>
                     <p>Symbolcount <span id="scount">0</span></p>
                     <p>Timer <span id="timer">0</span></p>
+                    <p>time between key press <span id="timer_key_press">0</span></p>
                 <div class="divider"></div>
                 <div class="form-inline">
                     <div class="form-group mx-sm-5 mb-2">
@@ -108,6 +112,7 @@
                     <button id="send" type="submit" class="btn btn-outline-secondary mb-2" onclick="send()">Login</button>
                 </div>
             </div>
+            <div class="divider"></div>
         </div>
         <script src="{{ asset('js/typespeed.js') }}" defer></script>
     </body>

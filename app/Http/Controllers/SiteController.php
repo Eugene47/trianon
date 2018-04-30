@@ -20,6 +20,10 @@ class SiteController extends Controller
             $visitor->save();
         }
 
-        return view('welcome')->with(['ip' => $ip]);
+        $hello = 'php';
+
+        $python = exec("python /var/www/html/diplom/python.py". json_encode($hello));
+
+        return view('welcome')->with(['ip' => $ip, 'python' => $python]);
     }
 }

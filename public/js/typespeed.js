@@ -1,10 +1,11 @@
-var timer = 0;
+/*var timer = 0;
 var spm = 0;
 var scount = 0;
 var interval_timer = 0;
-var started = false;
+var started = false;*/
+var start = 0;
 
-$("#input_pass").keypress(function(evt){
+/*$("#input_pass").keypress(function(evt){
     if(!started){
         start();
         started = true;
@@ -36,4 +37,15 @@ function stop(){
 
 function send() {
     stop();
-}
+}*/
+
+$("#input_pass").keyup(function(e) {
+    if(e.keyCode == 37) {
+        start = new Date().getTime();
+    } else if(e.keyCode == 39) {
+        var elapsed = new Date().getTime() - start;
+        $("#timer_key_press").text(elapsed);
+        // start again
+        start = 0;
+    }
+});
